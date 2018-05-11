@@ -9,10 +9,10 @@ const Header = (props) => {
             <div className="container">
                 <nav>
                     <div className="nav-wrapper">
-                        <a href="#" className="brand-logo left">Reports Administration</a>
+                        <Link to='/' className="brand-logo left">Reports Administration</Link>
                         <ul id="nav-mobile" className="right">
-                            <li className='active'><Link to=''>Reports</Link></li>
-                            <li><Link to=''>Create Report</Link></li>
+                            <li className='active'><Link to='/'>Reports</Link></li>
+                            <li><Link to='/submit'>Create Report</Link></li>
                         </ul>
                     </div>
                 </nav>

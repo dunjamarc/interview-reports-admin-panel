@@ -16,3 +16,38 @@ nav, div.nav-wrapper {
   background-color: rgb(93, 199, 199);
   border-right: 0;
 }
+
+table {
+  box-shadow: 0 0 10px rgb(165, 163, 163);
+}
+
+td {
+  border-right: 1px solid rgb(190, 190, 190);
+  line-height: 15px;
+}
+
+td:last-child {
+  border: none;
+}
+
+.label {
+  font-size: 10px;
+  color: gray;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+td:nth-child(1), td:nth-child(2) {
+  width: 250px;
+}
+
+td:nth-child(4) {
+  width: 100px;
+}
+
+td:nth-child(3), td:nth-child(5) {
+  width: fit-content;
+}
