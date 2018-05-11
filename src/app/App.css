@@ -71,3 +71,7 @@ i {
 a.close {
   color: black;
 }
+
+.search {
+  margin: 0;
+}
