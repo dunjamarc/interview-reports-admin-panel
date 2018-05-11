@@ -59,3 +59,15 @@ td:nth-child(3), td:nth-child(5) {
 h5 {
   border-bottom: 1px solid rgb(160, 158, 158);
 }
+
+a.modal-trigger {
+  color: rgb(65, 141, 141);
+}
+
+i {
+  margin: 0 10px;
+}
+
+a.close {
+  color: black;
+}

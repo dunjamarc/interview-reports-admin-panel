@@ -5,6 +5,12 @@ import M from "materialize-css";
 
 class ReportList extends Component {
 
+    constructor (props){
+        super(props);
+        this.state = {
+            showReport: true
+        }
+    }
 
     componentDidMount() {
         var elem = document.getElementById(this.props.value.id);
@@ -16,8 +22,15 @@ class ReportList extends Component {
         return `${intDate.getDate()}.${intDate.getMonth() + 1}.${intDate.getFullYear()}.`;
     }
 
+    deleteReport = () => {
+        this.setState({
+            showReport: false
+        })
+    }
+
     render() {
         return (
+            this.state.showReport ?
             <div className="row">
                 <table>
                     <tbody>
@@ -39,7 +52,7 @@ class ReportList extends Component {
                                 <p className="label">Status</p>
                             </td>
                             <td>
-                                <a className="waves-effect waves-light btn modal-trigger" href={`#${this.props.value.id}`}><i className="material-icons">remove_red_eye</i></a><button><i className="material-icons">clear</i></button>
+                                <a className="modal-trigger" href={`#${this.props.value.id}`}><i className="material-icons">remove_red_eye</i></a><a className="close" href="#" onClick={this.deleteReport} ><i className="material-icons">clear</i></a>
                             </td>
                         </tr>
                     </tbody>
@@ -47,7 +60,7 @@ class ReportList extends Component {
                 <div id={this.props.value.id} className="modal">
                     <Modal value={this.props.value} date={this.date} />
                 </div>
-            </div>
+            </div>  : ''
         )
     }
 }
