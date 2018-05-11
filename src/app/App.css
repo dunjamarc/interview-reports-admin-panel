@@ -51,3 +51,11 @@ td:nth-child(4) {
 td:nth-child(3), td:nth-child(5) {
   width: fit-content;
 }
+
+.modal {
+  max-width: 800px;
+}
+
+h5 {
+  border-bottom: 1px solid rgb(160, 158, 158);
+}

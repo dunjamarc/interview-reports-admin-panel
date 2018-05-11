@@ -5,11 +5,13 @@ app/ -components
   pages/
     HomePage/
       HomePage.js
+      Modal.js
       ReportList.js
     SubmitReport/
       SubmitReport.js
   partials/
     Header.js
+    Search.js
 
 entities/  -classes/objects
   Report.js

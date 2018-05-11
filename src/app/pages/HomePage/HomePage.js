@@ -25,9 +25,10 @@ class HomePage extends Component {
     render () {
         return (
             <div className='container'>
-            
+
                 {this.state.allReports.map(el => <ReportList value={el} key={el.id} />)}
             </div>
+            
         )
     }
 }

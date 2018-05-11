@@ -1,7 +1,15 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import Modal from './Modal';
+import M from "materialize-css";
 
 class ReportList extends Component {
+
+
+    componentDidMount() {
+        var elem = document.getElementById(this.props.value.id);
+        M.Modal.init(elem);
+    }
 
     date = (props) => {
         let intDate = new Date(this.props.value.interviewDate);
@@ -31,11 +39,14 @@ class ReportList extends Component {
                                 <p className="label">Status</p>
                             </td>
                             <td>
-                                <button><i class="material-icons">remove_red_eye</i></button><button><i class="material-icons">clear</i></button>
+                                <a className="waves-effect waves-light btn modal-trigger" href={`#${this.props.value.id}`}><i className="material-icons">remove_red_eye</i></a><button><i className="material-icons">clear</i></button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
+                <div id={this.props.value.id} className="modal">
+                    <Modal value={this.props.value} date={this.date} />
+                </div>
             </div>
         )
     }
