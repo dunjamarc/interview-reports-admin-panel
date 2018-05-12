@@ -1,9 +1,10 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import {Link, withRouter } from 'react-router-dom';
 
 
 const Header = (props) => {
-
+    console.log(props);
+    
     return (
         <header>
             <div className="container">
@@ -11,8 +12,8 @@ const Header = (props) => {
                     <div className="nav-wrapper">
                         <Link to='/' className="brand-logo left">Reports Administration</Link>
                         <ul id="nav-mobile" className="right">
-                            <li className='active'><Link to='/'>Reports</Link></li>
-                            <li><Link to='/submit'>Create Report</Link></li>
+                            <li className={props.location.pathname === '/' ? 'active' : ''}><Link to='/'>Reports</Link></li>
+                            <li className={props.location.pathname === '/submit' ? 'active' : ''}><Link to='/submit'>Create Report</Link></li>
                         </ul>
                     </div>
                 </nav>
@@ -21,4 +22,4 @@ const Header = (props) => {
     )
 }
 
-export default Header;
+export default withRouter(Header);
