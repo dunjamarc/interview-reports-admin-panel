@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../../App.css';
-import Search from '../../partials/Search';
+import SelectCandidate from './SelectCandidate';
 
 class SubmitReport extends Component {
 
@@ -36,7 +36,7 @@ class SubmitReport extends Component {
 
                     </div>
                     <div className="col l9 m9 panel">
-                        <h6 className="panel-heading">Fill Report Detail</h6>
+                        <SelectCandidate/>
                     </div>
                 </div>
             </div>
