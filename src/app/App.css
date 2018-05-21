@@ -7,14 +7,22 @@ nav, div.nav-wrapper {
 }
 
 #nav-mobile li {
-  border: 1px solid white;
   line-height: 35px;
   margin-top: 15px;
 }
 
+#nav-mobile li:first-child {
+  border: 1px solid white;
+}
+
+#nav-mobile li:last-child {
+  border-top: 1px solid white;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+}
+
 #nav-mobile li.active {
   background-color: rgb(93, 199, 199);
-  border-right: 0;
 }
 
 table {
@@ -119,4 +127,18 @@ div.image {
 p.mail {
   color: #666 !important;
   font-size: 14px;
+}
+
+.horizontal {
+  box-shadow: 0 0 10px rgb(165, 163, 163);
+}
+
+label.label-icon {
+  position: relative;
+  display: inline-block;
+}
+
+#search {
+  display: inline-block;
+  width: auto;
 }
