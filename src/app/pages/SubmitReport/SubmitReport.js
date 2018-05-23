@@ -1,27 +1,22 @@
 import React, { Component } from 'react';
 import '../../App.css';
 import SelectCandidate from './SelectCandidate';
+import SelectCompany from './SelectCompany';
 
 class SubmitReport extends Component {
 
-    /*constructor (props){
+    constructor (props){
         super(props);
         this.state = {
-            allReports: [],
-            inputValue: '',
-            search: []
+            show: 'candidates'
         }
     }
 
-    componentDidMount(){
-        reportData.allReportsData()
-        .then(data => {
-            this.setState({
-                allReports: data,
-                search: data
-            })
+    toNextPage = (page) => {
+        this.setState({
+            show: page
         })
-    }*/
+    }
 
     render() {
         return (
@@ -36,7 +31,9 @@ class SubmitReport extends Component {
 
                     </div>
                     <div className="col l9 m9 panel">
-                        <SelectCandidate/>
+                        {this.state.show == 'candidates' ? <SelectCandidate next={this.toNextPage} /> : ''}
+                        {this.state.show == 'companies' ? <SelectCompany next={this.toNextPage} /> : ''}
+                        
                     </div>
                 </div>
             </div>

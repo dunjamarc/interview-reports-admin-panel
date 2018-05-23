@@ -3,7 +3,6 @@ import {Link, withRouter } from 'react-router-dom';
 
 
 const Header = (props) => {
-    console.log(props);
     
     return (
         <header>

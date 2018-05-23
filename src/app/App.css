@@ -130,7 +130,14 @@ p.mail {
 }
 
 .horizontal {
+  border: 2px solid white;
   box-shadow: 0 0 10px rgb(165, 163, 163);
+  overflow: hidden;
+}
+
+.horizontal.selected {
+  border: 2px solid rgb(65, 141, 141);
+  box-shadow: none;
 }
 
 label.label-icon {
@@ -141,4 +148,8 @@ label.label-icon {
 #search {
   display: inline-block;
   width: auto;
+}
+
+.panel-nav {
+  margin-top: 30px;
 }

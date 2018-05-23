@@ -3,17 +3,15 @@ import { Link } from 'react-router-dom';
 
 class CandidateList extends Component {
 
-    /*constructor (props){
-        super(props);
-        this.state = {
-            showReport: true
-        }
-    }*/
+    saveInfo = (event) => {
+        sessionStorage.setItem('id', this.props.value.id);
+        sessionStorage.setItem('name', this.props.value.name);
+    }
 
     render() {
         return (
-            <div className="col l6 m6 s12">
-                <div className="card horizontal">
+            <div onClick={this.props.click} className="col l6 m6 s12" id={this.props.id}>
+                <div onClick={this.saveInfo} className={`card horizontal ${this.props.class}`}>
                     <div className="image valign-wrapper">
                         <img className="circle" src={this.props.value.image()} />
                     </div>

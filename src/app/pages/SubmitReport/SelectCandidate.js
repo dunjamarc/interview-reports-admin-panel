@@ -11,7 +11,9 @@ class SelectCandidate extends Component {
         this.state = {
             allCandidates: [],
             inputValue: '',
-            search: []
+            search: [],
+            class: [],
+            disabled: true
         }
     }
 
@@ -20,34 +22,50 @@ class SelectCandidate extends Component {
             .then(data => {
                 this.setState({
                     allCandidates: data,
-                    search: data
+                    search: data,
+                    class: data.map(el => '')
                 })
             })
     }
 
     handleChange = (event) => {
-		const filtered = this.state.allCandidates.filter(el => {
-			if(el.name.toLowerCase().search(event.target.value.toLowerCase()) !== -1 ){
+        const filtered = this.state.allCandidates.filter(el => {
+            if (el.name.toLowerCase().search(event.target.value.toLowerCase()) !== -1) {
                 return el;
             }
-		});
-		this.setState({
-			search: filtered,
-			inputValue: event.target.value
-		});
-	}
+        });
+        this.setState({
+            search: filtered,
+            inputValue: event.target.value
+        });
+    }
+
+    select = (event) => {        
+        
+        let target = event.currentTarget.id;
+        let changeClass = this.state.class.map((el, i) => i == target ? 'selected' : '');
+
+        this.setState({
+            class: changeClass,
+            disabled: false
+        })
+    }
 
     render() {
         return (
             <React.Fragment>
                 <div className="row right-align">
-                    <Search handleChange={this.handleChange} inputValue={this.state.inputValue}/>
+                    <Search handleChange={this.handleChange} inputValue={this.state.inputValue} />
                 </div>
                 <div className="row">
-                    {this.state.search.map(el => <CandidateList value={el} key={el.id} />)}
+                    {this.state.search.map((el, i) =>
+                        <CandidateList key={i} id={i} click={this.select} class={this.state.class[i]} value={el}/>
+                        
+                    )}
                 </div>
                 <div className="row">
-                    <a class="waves-effect waves-light btn right disabled">NEXT</a>
+                    <a onClick={() => this.props.next('companies')} className={`waves-effect waves-light btn right ${
+                        !this.state.disabled ? '' : 'disabled'}`}>NEXT</a>
                 </div>
             </React.Fragment>
         )
