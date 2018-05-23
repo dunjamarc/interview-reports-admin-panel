@@ -64,7 +64,7 @@ class SelectCandidate extends Component {
                     )}
                 </div>
                 <div className="row">
-                    <a onClick={() => this.props.next('companies')} className={`waves-effect waves-light btn right ${
+                    <a onClick={() => this.props.page('companies')} className={`waves-effect waves-light btn right ${
                         !this.state.disabled ? '' : 'disabled'}`}>NEXT</a>
                 </div>
             </React.Fragment>

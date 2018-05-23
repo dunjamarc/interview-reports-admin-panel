@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../../App.css';
 import SelectCandidate from './SelectCandidate';
 import SelectCompany from './SelectCompany';
+import FillDetails from './FillDetails';
 
 class SubmitReport extends Component {
 
@@ -12,7 +13,7 @@ class SubmitReport extends Component {
         }
     }
 
-    toNextPage = (page) => {
+    goToPage = (page) => {
         this.setState({
             show: page
         })
@@ -31,9 +32,9 @@ class SubmitReport extends Component {
 
                     </div>
                     <div className="col l9 m9 panel">
-                        {this.state.show == 'candidates' ? <SelectCandidate next={this.toNextPage} /> : ''}
-                        {this.state.show == 'companies' ? <SelectCompany next={this.toNextPage} /> : ''}
-                        
+                        {this.state.show == 'candidates' ? <SelectCandidate page={this.goToPage} /> : ''}
+                        {this.state.show == 'companies' ? <SelectCompany page={this.goToPage} /> : ''}
+                        {this.state.show == 'reportDetails' ? <FillDetails page={this.goToPage} /> : ''}
                     </div>
                 </div>
             </div>
