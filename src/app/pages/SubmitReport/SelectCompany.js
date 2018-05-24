@@ -57,7 +57,7 @@ class SelectCompany extends Component {
                 <div className="row right-align">
                     <Search handleChange={this.handleChange} inputValue={this.state.inputValue} />
                 </div>
-                <div className="row">
+                <div className="row company-list">
                     {this.state.search.map((el, i) =>
                         <CompanyList key={i} id={i} click={this.select} class={this.state.class[i]} value={el}/>
                     )}

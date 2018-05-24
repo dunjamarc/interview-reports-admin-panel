@@ -9,13 +9,9 @@ class CompanyList extends Component {
 
     render() {
         return (
-            <div onClick={this.props.click} className="col l6 m6 s12" id={this.props.id}>
-                <div onClick={this.saveInfo} className={`card horizontal ${this.props.class}`}>
-                    <div className="card-stacked">
-                        <div className="card-content">
-                            <p>{this.props.value.name}</p>
-                        </div>
-                    </div>
+            <div onClick={this.props.click} className="col l12 m12 s12" id={this.props.id}>
+                <div onClick={this.saveInfo} className={`company ${this.props.class}`}>
+                    <p>{this.props.value.name}</p>
                 </div>
             </div>
         )
