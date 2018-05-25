@@ -1,3 +1,7 @@
+.container {
+  width: 80% !important;
+}
+
 header, .nav-wrapper {
   background-color: rgb(65, 141, 141);
 }
@@ -202,4 +206,15 @@ select {
 
 .select {
   padding-right: 0 !important;
+}
+
+textarea {
+  border: 1px solid black !important;
+  border-radius: 2px !important;
+  padding: 10px !important;
+}
+
+div.input-field {
+  padding: 0 !important;
+  margin: 0;
 }

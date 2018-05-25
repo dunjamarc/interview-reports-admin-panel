@@ -6,17 +6,31 @@ class FillDetails extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            inputValue: '',
-            disabled: true
+            disabled: true,
+            date: '',
+            phase: '',
+            status: '',
+            notes: ''
         }
     }
 
-
     handleChange = (event) => {
-
-        this.setState({
-            inputValue: event.target.value
-        });
+        switch (event.target.name){
+            case "date" : this.setState({date: event.target.value});
+            break;
+            case "phase" : this.setState({phase: event.target.value});
+            break;
+            case "status" : this.setState({status: event.target.value});
+            break;
+            default : this.setState({notes: event.target.value});
+            break;
+        }
+        if(this.state.date !== '' && this.state.phase !== '' && this.state.status !== '' && this.state.notes !== ''){
+            this.setState({
+                disabled: false
+            })
+        }
+        
     }
 
     date = () => {
@@ -36,35 +50,40 @@ class FillDetails extends Component {
                     <div className="col l4 m6 s12">
                         <form>
                             <p className="mail">Interview Date:</p>
-                            <input type="date" name="date" max={this.date()} placeholder="Date" required />
+                            <input type="date" name="date" max={this.date()} onChange={this.handleChange} required />
                         </form>
                     </div>
                     <div className="col l4 m6 s12 select">
                         <p className="mail">Phase:</p>
-                        <select required>
-                            <option value="" disabled selected>Technical</option>
-                            <option value="1">cv</option>
-                            <option value="2">hr</option>
-                            <option value="3">tech</option>
-                            <option value="4">final</option>
+                        <select required name="phase" onChange={this.handleChange}>
+                            <option value="0" disabled selected>Technical</option>
+                            <option value="cv">cv</option>
+                            <option value="hr">hr</option>
+                            <option value="tech">tech</option>
+                            <option value="final">final</option>
                         </select>
                     </div>
                     <div className="col l4 m6 s12 select">
                         <p className="mail">Status:</p>
-                        <select required>
+                        <select required name="status" onChange={this.handleChange}>
                             <option value="" disabled selected>Select</option>
-                            <option value="1">passed</option>
-                            <option value="2">declined </option>
+                            <option value="passed">passed</option>
+                            <option value="declined">declined</option>
                         </select>
                     </div>
                 </div>
                 <div className="row">
-
+                    <div className="col l12 m12 s12 select">
+                        <p className="mail">Notes:</p>
+                        <div className="input-field col s12">
+                            <textarea name="notes" id="textarea1" className="materialize-textarea" onChange={this.handleChange}></textarea>
+                        </div>
+                    </div>
                 </div>
                 <div className="row">
                     <a onClick={() => this.props.page('companies')} className="waves-effect waves-light btn left">BACK</a>
                     <a className={`waves-effect waves-light btn right ${
-                        !this.state.disabled ? '' : 'disabled'}`}>NEXT</a>
+                        !this.state.disabled ? '' : 'disabled'}`}>SUBMIT</a>
                 </div>
             </React.Fragment>
         )
