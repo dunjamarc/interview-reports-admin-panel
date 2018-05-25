@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../../App.css';
+import reportData from '../../../services/ReportService';
 
 class FillDetails extends Component {
 
@@ -15,22 +16,41 @@ class FillDetails extends Component {
     }
 
     handleChange = (event) => {
-        switch (event.target.name){
-            case "date" : this.setState({date: event.target.value});
-            break;
-            case "phase" : this.setState({phase: event.target.value});
-            break;
-            case "status" : this.setState({status: event.target.value});
-            break;
-            default : this.setState({notes: event.target.value});
-            break;
+        switch (event.target.name) {
+            case "date": this.setState({ date: event.target.value });
+                break;
+            case "phase": this.setState({ phase: event.target.value });
+                break;
+            case "status": this.setState({ status: event.target.value });
+                break;
+            default: this.setState({ notes: event.target.value });
+                break;
         }
-        if(this.state.date !== '' && this.state.phase !== '' && this.state.status !== '' && this.state.notes !== ''){
+        if (this.state.date !== '' && this.state.phase !== '' && this.state.status !== '' && this.state.notes !== '') {
             this.setState({
                 disabled: false
             })
         }
+
+    }
+
+    handleClick = (event) => {
+
+        const obj = {
+            candidateId: parseInt(sessionStorage.getItem('candidateId')),
+            candidateName: sessionStorage.getItem('candidateName'),
+            companyId: parseInt(sessionStorage.getItem('companyId')),
+            companyName: sessionStorage.getItem('companyName'),
+            interviewDate: new Date(this.state.date),
+            phase: this.state.phase,
+            status: this.state.status,
+            note: this.state.notes
+        };
         
+        reportData.sendReport(`http://localhost:3333/api/reports`, obj)
+            .then(() => {
+                this.props.value.history.push('/');
+            })
     }
 
     date = () => {
@@ -43,7 +63,7 @@ class FillDetails extends Component {
     }
 
     render() {
-
+        
         return (
             <React.Fragment>
                 <div className="row">
@@ -82,7 +102,7 @@ class FillDetails extends Component {
                 </div>
                 <div className="row">
                     <a onClick={() => this.props.page('companies')} className="waves-effect waves-light btn left">BACK</a>
-                    <a className={`waves-effect waves-light btn right ${
+                    <a onClick={this.handleClick} className={`waves-effect waves-light btn right ${
                         !this.state.disabled ? '' : 'disabled'}`}>SUBMIT</a>
                 </div>
             </React.Fragment>

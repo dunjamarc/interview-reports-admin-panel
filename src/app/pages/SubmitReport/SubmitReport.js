@@ -20,6 +20,7 @@ class SubmitReport extends Component {
     }
 
     render() {
+        
         return (
             <div className='container'>
                 <div className="row">
@@ -34,7 +35,7 @@ class SubmitReport extends Component {
                     <div className="col l9 m9 panel">
                         {this.state.show == 'candidates' ? <SelectCandidate page={this.goToPage} /> : ''}
                         {this.state.show == 'companies' ? <SelectCompany page={this.goToPage} /> : ''}
-                        {this.state.show == 'reportDetails' ? <FillDetails page={this.goToPage} /> : ''}
+                        {this.state.show == 'reportDetails' ? <FillDetails value={this.props} page={this.goToPage} /> : ''}
                     </div>
                 </div>
             </div>

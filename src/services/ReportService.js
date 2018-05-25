@@ -16,6 +16,14 @@ class ReportService {
                 return response.map((el) => new Report(el))
             })
     }
+
+    sendReport(url, data){
+        return fetch(url, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data)
+        })
+    }
 }
 
 const reportData = new ReportService();
