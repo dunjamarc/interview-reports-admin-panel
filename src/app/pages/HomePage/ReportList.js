@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
 import Modal from './Modal';
 import M from "materialize-css";
 
@@ -38,7 +37,12 @@ class ReportList extends Component {
                                 <p className="label">Status</p>
                             </td>
                             <td>
-                                <a className="modal-trigger" href={`#${this.props.value.id}`}><i className="material-icons">remove_red_eye</i></a><a className="close" href="#" onClick={() => this.props.deleteReport(this.props.value.id)} ><i className="material-icons">clear</i></a>
+                                <a className="modal-trigger" href={`#${this.props.value.id}`}>
+                                    <i className="material-icons">remove_red_eye</i>
+                                </a>
+                                <a className="close" href="#" onClick={() => this.props.deleteReport(this.props.value.id)} >
+                                    <i className="material-icons">clear</i>
+                                </a>
                             </td>
                         </tr>
                     </tbody>

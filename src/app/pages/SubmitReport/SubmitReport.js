@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../../App.css';
-import SelectCandidate from './SelectCandidate';
-import SelectCompany from './SelectCompany';
+import SelectCandidate from './SelectCandidate/SelectCandidate';
+import SelectCompany from './SelectCompany/SelectCompany';
 import FillDetails from './FillDetails';
 import ShowSelection from './ShowSelection';
 

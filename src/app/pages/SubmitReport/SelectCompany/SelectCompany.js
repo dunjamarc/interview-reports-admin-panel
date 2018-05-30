@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import '../../App.css';
-import candidateData from '../../../services/CandidateService';
-import Search from '../../partials/Search';
-import CandidateList from './CandidateList';
+import '../../../App.css';
+import companyData from '../../../../services/CompanyService';
+import Search from '../../../partials/Search';
+import CompanyList from './CompanyList';
 
-class SelectCandidate extends Component {
+class SelectCompany extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            allCandidates: [],
+            allCompanies: [],
             inputValue: '',
             search: [],
             class: [],
@@ -18,10 +18,10 @@ class SelectCandidate extends Component {
     }
 
     componentDidMount() {
-        candidateData.allCandidatesData()
+        companyData.allCompaniesData()
             .then(data => {
                 this.setState({
-                    allCandidates: data,
+                    allCompanies: data,
                     search: data,
                     class: data.map(el => '')
                 })
@@ -29,7 +29,7 @@ class SelectCandidate extends Component {
     }
 
     handleChange = (event) => {
-        const filtered = this.state.allCandidates.filter(el => {
+        const filtered = this.state.allCompanies.filter(el => {
             if (el.name.toLowerCase().search(event.target.value.toLowerCase()) !== -1) {
                 return el;
             }
@@ -57,14 +57,14 @@ class SelectCandidate extends Component {
                 <div className="row right-align">
                     <Search handleChange={this.handleChange} inputValue={this.state.inputValue} />
                 </div>
-                <div className="row">
+                <div className="row company-list">
                     {this.state.search.map((el, i) =>
-                        <CandidateList key={i} id={i} click={this.select} class={this.state.class[i]} value={el}/>
-                        
+                        <CompanyList key={i} id={i} click={this.select} class={this.state.class[i]} value={el}/>
                     )}
                 </div>
                 <div className="row">
-                    <a onClick={() => this.props.page('companies')} className={`waves-effect waves-light btn right ${
+                    <a onClick={() => this.props.page('candidates')} className="waves-effect waves-light btn left">BACK</a>
+                    <a onClick={() => this.props.page('reportDetails')} className={`waves-effect waves-light btn right ${
                         !this.state.disabled ? '' : 'disabled'}`}>NEXT</a>
                 </div>
             </React.Fragment>
@@ -72,4 +72,4 @@ class SelectCandidate extends Component {
     }
 }
 
-export default SelectCandidate;
+export default SelectCompany;
