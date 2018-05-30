@@ -24,6 +24,12 @@ class ReportService {
             body: JSON.stringify(data)
         })
     }
+
+    deleteReport(id){
+        return fetch(`http://localhost:3333/api/reports/${id}`, {
+            method: 'DELETE',
+        })
+    }
 }
 
 const reportData = new ReportService();

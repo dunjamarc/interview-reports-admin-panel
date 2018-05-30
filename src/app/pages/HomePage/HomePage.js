@@ -15,7 +15,7 @@ class HomePage extends Component {
         }
     }
 
-    componentDidMount(){
+    fetchData = () => {
         reportData.allReportsData()
         .then(data => {
             this.setState({
@@ -23,6 +23,10 @@ class HomePage extends Component {
                 search: data
             })
         })
+    }
+
+    componentDidMount(){
+        this.fetchData()
     }
 
     handleChange = (event) => {
@@ -35,13 +39,20 @@ class HomePage extends Component {
 			search: filtered,
 			inputValue: event.target.value
 		});
-	}
+    }
+    
+    deleteReport = (id) => {
+        reportData.deleteReport(id)
+        .then(response => {
+            this.fetchData()
+        })
+    }
 
     render () {
         return (
             <div className='container'>
                 <Search handleChange={this.handleChange} inputValue={this.state.inputValue}/>
-                {this.state.search.map(el => <ReportList value={el} key={el.id} />)}
+                {this.state.search.map(el => <ReportList value={el} key={el.id} deleteReport={this.deleteReport}/>)}
             </div>
             
         )
