@@ -6,6 +6,7 @@ const Modal = (props) => {
 
         <div className="modal-content">
             <h5>{props.value.candidateName}</h5>
+
             <div>
                 <div className="row">
                     <div className="col l5 m5 s5">
@@ -24,6 +25,7 @@ const Modal = (props) => {
                     </div>
                 </div>
             </div>
+            <a class="btn-floating right modal-close"><i class="material-icons">clear</i></a>
         </div>
 
     )
