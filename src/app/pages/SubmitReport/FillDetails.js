@@ -37,9 +37,9 @@ class FillDetails extends Component {
     handleClick = (event) => {
 
         const obj = {
-            candidateId: parseInt(sessionStorage.getItem('candidateId')),
+            candidateId: parseInt(sessionStorage.getItem('candidateId'), 10),
             candidateName: sessionStorage.getItem('candidateName'),
-            companyId: parseInt(sessionStorage.getItem('companyId')),
+            companyId: parseInt(sessionStorage.getItem('companyId'), 10),
             companyName: sessionStorage.getItem('companyName'),
             interviewDate: new Date(this.state.date),
             phase: this.state.phase,

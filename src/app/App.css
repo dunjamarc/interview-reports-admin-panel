@@ -8,6 +8,11 @@ header, .nav-wrapper {
 
 nav, div.nav-wrapper {
   box-shadow: 0 0 0;
+  overflow: auto !important;
+}
+
+.brand-logo, #nav-mobile {
+  clear: both;
 }
 
 #nav-mobile li {
@@ -225,6 +230,7 @@ textarea {
   border: 1px solid black !important;
   border-radius: 2px !important;
   padding: 10px !important;
+  max-width: 592px;
 }
 
 div.input-field {

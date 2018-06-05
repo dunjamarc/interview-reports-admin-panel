@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
 
 class CandidateList extends Component {
 
@@ -13,7 +12,7 @@ class CandidateList extends Component {
             <div onClick={this.props.click} className="col l6 m6 s12" id={this.props.id}>
                 <div onClick={this.saveInfo} className={`card horizontal ${this.props.class}`}>
                     <div className="image valign-wrapper">
-                        <img className="circle" src={this.props.value.image()} />
+                        <img className="circle" src={this.props.value.image()} alt="" />
                     </div>
                     <div className="card-stacked">
                         <div className="card-content">

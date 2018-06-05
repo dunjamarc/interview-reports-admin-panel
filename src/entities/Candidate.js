@@ -10,7 +10,7 @@ class Candidate  {
     }
 
     image () {
-        if(this.avatar == ""){
+        if(this.avatar === ""){
             this.avatar = "http://budhubz.com/wp-content/themes/budhubs/images/noavatar.png";
         }
         return this.avatar;

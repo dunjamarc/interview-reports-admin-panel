@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 const Modal = (props) => {
 
@@ -25,7 +25,7 @@ const Modal = (props) => {
                     </div>
                 </div>
             </div>
-            <a class="btn-floating right modal-close"><i class="material-icons">clear</i></a>
+            <a className="btn-floating right modal-close"><i className="material-icons">clear</i></a>
         </div>
 
     )

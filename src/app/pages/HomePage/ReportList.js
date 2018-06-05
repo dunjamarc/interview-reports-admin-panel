@@ -40,7 +40,7 @@ class ReportList extends Component {
                                 <a className="modal-trigger" href={`#${this.props.value.id}`}>
                                     <i className="material-icons">remove_red_eye</i>
                                 </a>
-                                <a className="close" href="#" onClick={() => this.props.deleteReport(this.props.value.id)} >
+                                <a className="close" href="" onClick={() => this.props.deleteReport(this.props.value.id)} >
                                     <i className="material-icons">clear</i>
                                 </a>
                             </td>

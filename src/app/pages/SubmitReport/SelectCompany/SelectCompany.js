@@ -43,7 +43,7 @@ class SelectCompany extends Component {
     select = (event) => {        
         
         let target = event.currentTarget.id;
-        let changeClass = this.state.class.map((el, i) => i == target ? 'selected' : '');
+        let changeClass = this.state.class.map((el, i) => i === target ? 'selected' : '');
 
         this.setState({
             class: changeClass,
