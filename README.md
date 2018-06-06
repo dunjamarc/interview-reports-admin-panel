@@ -2,6 +2,7 @@
 
 app/ *components*
     App.js
+
     pages/
         HomePage/
             HomePage.js
@@ -17,6 +18,7 @@ app/ *components*
             FillDetails.js
             ShowSelection.js
             SubmitReport.js
+			
     partials/
         Header.js
         Search.js
