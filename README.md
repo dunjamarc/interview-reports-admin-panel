@@ -6,9 +6,21 @@ Mock API used for development of this project:
 
 [https://github.com/nenadbugaric/interviews-reports-api-mock]
 
+![](screenshots/frontpage.jpg)
+![](screenshots/candidate.jpg)
+![](screenshots/company.jpg)
+![](screenshots/technical.jpg)
+
+## Installation
+
+```sh
+npm install
+npm start
+```
+
 ## Project structure
 
-* app - - Components
+* app - Components
     * App.js
     * pages
         * HomePage
