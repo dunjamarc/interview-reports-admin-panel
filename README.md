@@ -1,34 +1,38 @@
-*project structure:*
+# Interview reports admin panel
 
-app/ *components*
-    App.js
+> Admin panel used for creation of interview reports from candidates at different companies, written in React.js
 
-    pages/
-        HomePage/
-            HomePage.js
-            Modal.js
-            ReportList.js
-        SubmitReport/
-            SelectCandidate/
-                CandidateList.js
-                SelectCandidate.js
-    	    SelectCompany/
-                CompanyList.js
-                SelectCompany.js
-            FillDetails.js
-            ShowSelection.js
-            SubmitReport.js
-			
-    partials/
-        Header.js
-        Search.js
+Mock API used for development of this project:
 
-entities/  *classes/objects*
-    Candidate.js
-    Company.js
-    Report.js
+[https://github.com/nenadbugaric/interviews-reports-api-mock]
 
-services/  *services related to entities*
-    CandidateService.js
-    CompanyService.js
-    ReportService.js
+## Project structure
+
+* app - - Components
+    * App.js
+    * pages
+        * HomePage
+            * HomePage.js
+            * Modal.js
+            * ReportList.js
+        * SubmitReport
+            * SelectCandidate
+                * CandidateList.js
+                * SelectCandidate.js
+    	    * SelectCompany
+                * CompanyList.js
+                * SelectCompany.js
+            * FillDetails.js
+            * ShowSelection.js
+            * SubmitReport.js
+    * partials
+        * Header.js
+        * Search.js
+* entities - ES6 classes
+    * Candidate.js
+    * Company.js
+    * Report.js
+* services - Services related to main entities
+    * CandidateService.js
+    * CompanyService.js
+    * ReportService.js
